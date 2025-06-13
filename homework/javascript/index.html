@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina inicial</title>
+    <link rel="stylesheet" href="/homework/javascript/style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>boas vindas!</h1>
+        <p>vamos personalizar uma saudação em javascript</p>
+        <div class="saudacao" id="mensagemSaudacao">ola, convidado!</div>
+        <button onClick="mudarNome()">personalizar saudacao</button> <!--eventop js ao clicar no botão-->
+    </div>
+
+    <script>
+        //declaração da funçao
+        function mudarNome() {
+            let nome = "sara"
+            document.getElementById("mensagemSaudacao").textContent = "Olá, " + nome
+        } // tudo o que estiver dentro da função será executado sempre que a função for chamada
+    </script>
+</body>
+
+</html>

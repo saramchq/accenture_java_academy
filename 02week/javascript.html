@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <h1 id="teste1">Bom dia</h1>
     <!-- init code -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
@@ -30,10 +31,13 @@
             age: 0
         } // declaração de um objeto é com abrir e fechar chavetas
         let soma = x1 + x2;
-        console.log(soma); // Vai mostrar no terminal onde o ficheiro está a correr o que eu lhe passar neste método
-        console.dir(soma); // Semelhante ao log mas mostra me toda a estrutura do objeto. Imprime todos os valores que existem no DOM para X variável
-        console.warn(soma); // manda me um warning de um problema grave da minha aplicação
+        console.log(x1+name2);
+        console.log(name2+x1); // Vai mostrar no terminal onde o ficheiro está a correr o que eu lhe passar neste método
+        //console.dir(soma); // Semelhante ao log mas mostra me toda a estrutura do objeto. Imprime todos os valores que existem no DOM para X variável
+        //console.warn(soma); // manda me um warning de um problema grave da minha aplicação
         // Console serve apenas para debug. Não se usa em produção. Quando for para o cliente o código deve ir limpo. Devemos apagar os consoles da lógica.
+
+        document.getElementById("teste1").innerHTML = "Boa tarde";
 
     </script>
 </body>
