@@ -49,14 +49,56 @@
             }
         }
     </script>-->
-<form>
-    <label for="inputUser">Insert your number:</label>
-    <input type="number" id="inputUser" name="inputUser">
+    <form>
+        <label for="inputUser">Insert your number:</label>
+        <input type="number" id="inputUser" name="inputUser">
+        <button type=button onclick="ValorInput()">Enter</button>
+        <br>
+        <label for="answer">Answer:</label>
+        <div id="answer"></div>
     </form>
 
-<script>
-    const input = document.getElementById("inputUser");
-</script>
+    <script>
+        function ValorInput() {
+            const input = parseInt(document.getElementById("inputUser").value); //o parseInt converte o valor inserido em numero porque mesmo q tenha type number o input é sempre reconhecido no html como string
+            console.log(input); // mostra o valor inserido pelo utilizador na consoles
+
+            const game = new Fizzbuzz(input); // cria o objeto c o numero inserido
+            game.result(); // chama o metodo p mostrar o resultado
+        }
+
+        class Fizzbuzz {
+            constructor(looptillhere) {
+                this.looptillhere = looptillhere; // guarda o numero até onde contar
+            }
+
+            result() {
+                const output = document.getElementById("answer");
+                output.innerHTML = ""; //limpa os resultados anteriores antes de mostrar a resposta
+
+                let finalResult=""; // aqui junta os resultados
+
+                for (let i = 0; i <= this.looptillhere; i++) {
+                    let answer = "";
+                    if (i % 3 === 0 && i % 5 === 0) {
+                        answer += "fizzbuzz \n ";   // acrescenta "fizzbuzz" ao fim da string
+                    }
+                   else if (i % 3 === 0) {
+                        answer += "fizz \n";   // acrescenta "fizz" ao fim da string         
+                    }
+                    else if (i % 5 === 0) {
+                        answer += "buzz \n";   // acrescenta "buzz" ao fim da string
+                    }
+                    else {
+                        answer = i;
+                    }
+                    
+                    finalResult += `Numero - ${i} : ${answer}<br>`;
+                }
+                output.innerHTML = finalResult; // mostra o resultado
+            }
+        }
+    </script>
 
 
 
