@@ -14,14 +14,28 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 
-    <script>
+    <!-- <script>
         let index = 0;
         while (index <= 40) {
+            // let currString = 'Numero -'+ index + " : " ; 
+            let currString = `Numero - ${index} : `;
+            let isToPrint = false;
 
+            if (index % 3 === 0)  {
+                currString += "fizz";
+                isToPrint = true;
+            }
+            if (index % 5 === 0)  {
+                currString += "buzz";
+                isToPrint = true;
+            }
+            if(isToPrint) {
+                console.log(currString);
+            }
             index++;
         }
-    </script>
-
+    </script> 
+-->
     <!--<script>
         for (let i = 0; i <= 40; i++) {
             if (i % 3 === 0 && i % 5 === 0) {
@@ -35,6 +49,17 @@
             }
         }
     </script>-->
+<form>
+    <label for="inputUser">Insert your number:</label>
+    <input type="number" id="inputUser" name="inputUser">
+    </form>
+
+<script>
+    const input = document.getElementById("inputUser");
+</script>
+
+
+
 </body>
 
 </html>
