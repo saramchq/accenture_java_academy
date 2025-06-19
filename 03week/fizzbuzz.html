@@ -49,13 +49,24 @@
             }
         }
     </script>-->
+
+<!--
+    criar elemento input: number x  X
+    btn resolve X
+    class FizzBuzz
+    contructor um param loops
+    meth resolve fizzbuzz (console -> novo elemento html)
+    get loop count from input
+    create object from Fizzbuzzz class [X]
+    resolve fizzbuzz onclick-->
+
     <form>
         <label for="inputUser">Insert your number:</label>
         <input type="number" id="inputUser" name="inputUser">
         <button type=button onclick="ValorInput()">Enter</button>
         <br>
         <label for="answer">Answer:</label>
-        <div id="answer"></div>
+        <p id="answer"></p>
     </form>
 
     <script>
@@ -76,24 +87,24 @@
                 const output = document.getElementById("answer");
                 output.innerHTML = ""; //limpa os resultados anteriores antes de mostrar a resposta
 
-                let finalResult=""; // aqui junta os resultados
+                let finalResult=``; // aqui junta os resultados
 
                 for (let i = 0; i <= this.looptillhere; i++) {
-                    let answer = "";
+                    let answer = ``;
                     if (i % 3 === 0 && i % 5 === 0) {
-                        answer += "fizzbuzz \n ";   // acrescenta "fizzbuzz" ao fim da string
+                        answer += `fizzbuzz \n `;   // acrescenta "fizzbuzz" ao fim da string
                     }
                    else if (i % 3 === 0) {
-                        answer += "fizz \n";   // acrescenta "fizz" ao fim da string         
+                        answer += `fizz \n`;   // acrescenta "fizz" ao fim da string         
                     }
                     else if (i % 5 === 0) {
-                        answer += "buzz \n";   // acrescenta "buzz" ao fim da string
+                        answer += `buzz \n`;   // acrescenta "buzz" ao fim da string
                     }
                     else {
                         answer = i;
                     }
                     
-                    finalResult += `Numero - ${i} : ${answer}<br>`;
+                    finalResult += `Number - ${i} : ${answer}<br>`;
                 }
                 output.innerHTML = finalResult; // mostra o resultado
             }
