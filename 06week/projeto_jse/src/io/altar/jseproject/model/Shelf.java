@@ -1,18 +1,28 @@
 package io.altar.jseproject.model;
 
-public class Shelf {
-	private static int contadorIds = 1;
-	private final int id;
+public class Shelf extends myEntity{ // esta classe representa uma prateleira
+	
+	// ############ o id agora vem da superclasse myEntity #################
+	//private static int contadorIds = 1; //não é um objeto especifico e serve pra gerar ids unicos p cada prateleira
+	//private final int id; //id é final pq so pode ser atribuido uma vez no construtor
+	// #####################################################################
 	private int capacidade;
 	private int idProduto; //aqui é onde guardo o id do produto
 	private double precoAluguer;
 	
 	public Shelf(int capacidade, double precoAluguer) { 
-		this.id=contadorIds++;
+		//this.id=contadorIds++;
 		this.capacidade = capacidade; 
 		this.precoAluguer = precoAluguer;
 	}
-	//construtor que recebe 3 parametros de entrada, capacidade idproduto e precoaluguer. dar opçao ou n ao utilizador de criar prateleiras com produto la dentro
+	
+	public Shelf(int capacidade, int idProduto, double precoAluguer) {  //constructor overloading = dois construtores com o mesmo nome. Os metodos podem ser iguais desde q utilizem diferentes parametros.
+		//this.id = contadorIds++;
+		this.capacidade = capacidade;
+	    this.idProduto = idProduto;
+	    this.precoAluguer = precoAluguer;
+	}
+
 	
 	public int getCapacidade() {
 		return capacidade;
@@ -32,9 +42,9 @@ public class Shelf {
 	public void setPrecoAluguer(double precoAluguer) {
 		this.precoAluguer = precoAluguer;
 	}
-	public int getId() {
-		return id;
-	}
+	//public int getId() {
+		//return id;
+	//}
 	
 }
 

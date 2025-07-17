@@ -3,16 +3,20 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class Product {
-	private static int contadorIds = 1; // começa no 1
-	private final int id; //final significa q só pode ser atribuido uma unica vez ou seja uma vez definido no construtor nao pode mais ser alterado
+public class Product extends myEntity {
+	
+	// ############ o id agora vem da superclasse myEntity #################
+	//private static int contadorIds = 1; // começa no 1
+	//private final int id; //final significa q só pode ser atribuido uma unica vez ou seja uma vez definido no construtor nao pode mais ser alterado
+	// #####################################################################
+	
 	private List<Integer>prateleiras; //ids das prateleiras
 	private double descontoUni;
 	private double iva;
 	private double pvp;
 
-		public Product(int id, double descontoUni, double iva, double pvp) {
-			this.id = contadorIds++; // faz mais sentido q eu crie os ids p serem gerados automaticamente c um incremento do q me lembrar de atribuir um id manualmente
+		public Product(double descontoUni, double iva, double pvp) {
+			//this.id = contadorIds++; // faz mais sentido q eu crie os ids p serem gerados automaticamente c um incremento do q me lembrar de atribuir um id manualmente
 			this.descontoUni = descontoUni;
 			this.iva = iva;
 			this.pvp = pvp;
@@ -29,9 +33,9 @@ public class Product {
 		}
 		
 
-		public int getId() { // acesso o valor do atributo ido fora da class e retorna me o valor atual do atributo
-			return id;
-		}
+		//public int getId() { // acesso o valor do atributo ido fora da class e retorna me o valor atual do atributo
+		//	return id;
+		//}
 
 		public double getDescontoUni() { //Devolve o valor atual do desconto unitário
 			return descontoUni;
