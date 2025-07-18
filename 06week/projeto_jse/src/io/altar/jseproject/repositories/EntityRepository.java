@@ -21,7 +21,7 @@ public abstract class EntityRepository<T extends myEntity> { // classe abstrata 
 	public long create(T entity) {
 		Long newId = getNextId(); //gera novo id
 		entity.setId(newId);//exemplo: eu crio o obj sem id no construtor e depois o repositorio chama setId(...) para atribuir um id ao obj
-		db.put(newId, entity); //guarda o obj na bd
+		db.put(newId, entity); //guarda o obj na bd 
 		return newId; //retorna o id criado
 	}
 
@@ -47,4 +47,4 @@ public abstract class EntityRepository<T extends myEntity> { // classe abstrata 
 	}
 }
 
-//ver collections
+//TODO ver collections
