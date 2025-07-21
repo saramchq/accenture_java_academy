@@ -76,7 +76,8 @@ public class TextInterface {
 						criarProduto();
 						break;
 					case 2:
-						System.out.println("[Função editar produto ainda por implementar]");
+						System.out.println("Insira o ID do produto que deseja consultar: ");
+						if (scanner.hasNextLong())
 						break;
 					case 3:
 						System.out.println("[Função consultar produto ainda por implementar]");
