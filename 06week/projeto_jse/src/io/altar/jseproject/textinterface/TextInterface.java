@@ -82,7 +82,9 @@ public class TextInterface {
 						scanner.nextLine(); // limpa o buffer
 
 						Product produto = productRepo.getById(id);
+						
 //TODO NUMA UNICA ADIÇAO FAZER 3 REMOÇOES E 1 ADIÇAO
+						
 						if (produto != null) {
 							// Mostra valores atuais
 							System.out.println("Produto encontrado:");
