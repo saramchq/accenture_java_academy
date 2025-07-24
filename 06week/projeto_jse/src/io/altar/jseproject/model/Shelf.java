@@ -7,7 +7,7 @@ public class Shelf extends myEntity{ // esta classe representa uma prateleira
 	//private final int id; //id é final pq so pode ser atribuido uma vez no construtor
 	// #####################################################################
 	private int capacidade;
-	private int idProduto; //aqui é onde guardo o id do produto
+	private long idProduto; //aqui é onde guardo o id do produto
 	private double precoAluguer;
 	
 	public Shelf(int capacidade, double precoAluguer) { 
@@ -30,7 +30,7 @@ public class Shelf extends myEntity{ // esta classe representa uma prateleira
 	public void setCapacidade(int capacidade) {
 		this.capacidade = capacidade;
 	}
-	public int getIdProduto() {
+	public long getIdProduto() {
 		return idProduto;
 	}
 	public void setIdProduto(int idProduto) {
@@ -45,6 +45,9 @@ public class Shelf extends myEntity{ // esta classe representa uma prateleira
 	//public int getId() {
 		//return id;
 	//}
-	
+	public void setIdProduto(long idProduto) {
+	    this.idProduto = idProduto;
+	}
+
 }
 

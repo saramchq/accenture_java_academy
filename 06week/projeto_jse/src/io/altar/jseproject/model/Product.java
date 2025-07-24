@@ -10,7 +10,7 @@ public class Product extends myEntity {
 	//private final int id; //final significa q só pode ser atribuido uma unica vez ou seja uma vez definido no construtor nao pode mais ser alterado
 	// #####################################################################
 	
-	private List<Integer>prateleiras; //ids das prateleiras
+	private List<Long>prateleiras; //ids das prateleiras
 	private double descontoUni;
 	private double iva;
 	private double pvp;
@@ -24,11 +24,11 @@ public class Product extends myEntity {
 		}
 
 		
-		public List<Integer> getPrateleiras() { // devolve a lista de prateleiras onde o produto se encontra
+		public List<Long> getPrateleiras() { // devolve a lista de prateleiras onde o produto se encontra
 				return prateleiras;
 			}
 
-			public void setPrateleiras(List<Integer> prateleiras) { // substitui a lista de prateleiras atual por uma nova lista
+			public void setPrateleiras(List<Long> prateleiras) { // substitui a lista de prateleiras atual por uma nova lista
 				this.prateleiras = prateleiras; //  isto serve p caso eu queira remover um produto do sistema limpar as prateleiras onde ele estava
 		}
 		
