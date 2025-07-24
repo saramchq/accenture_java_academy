@@ -31,6 +31,7 @@ public class ListShelves extends State {
 		System.out.print("Escolha uma opção: ");
 
 		// Lê input do utilizador
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		int opcao = -1;
 

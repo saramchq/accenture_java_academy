@@ -7,6 +7,7 @@ import io.altar.jseproject.repositories.ProductRepository;
 public class DeleteProduct extends State {
 	@Override
 	public int on() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("\n===== REMOVER PRODUTO =====");

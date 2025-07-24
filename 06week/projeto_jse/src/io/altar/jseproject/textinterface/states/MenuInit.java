@@ -12,6 +12,7 @@ public class MenuInit extends State {
 		System.out.println("0. Sair");
 		System.out.print("Escolha uma opção: ");
 
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		if (scanner.hasNextInt()) {

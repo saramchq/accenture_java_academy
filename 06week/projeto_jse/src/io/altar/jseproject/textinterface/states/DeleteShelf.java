@@ -7,6 +7,7 @@ import io.altar.jseproject.repositories.ShelfRepository;
 public class DeleteShelf extends State {
 	@Override
 	public int on () {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("\n===== REMOVER PRATELEIRA =====");

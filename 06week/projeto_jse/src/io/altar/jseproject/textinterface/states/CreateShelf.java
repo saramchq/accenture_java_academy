@@ -8,6 +8,7 @@ import io.altar.jseproject.repositories.ShelfRepository;
 public class CreateShelf extends State {
 	@Override
 	public int on() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("\n===== CRIAR PRATELEIRA =====");

@@ -9,7 +9,8 @@ public class EditShelf extends State {
 
     @Override
     public int on() { 
-        Scanner scanner = new Scanner(System.in); 
+        @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in); 
 
         System.out.println("\n===== EDITAR PRATELEIRA =====");
         System.out.print("Insira o ID da prateleira a editar: ");

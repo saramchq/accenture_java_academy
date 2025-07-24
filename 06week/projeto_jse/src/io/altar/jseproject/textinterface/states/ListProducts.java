@@ -31,6 +31,7 @@ public class ListProducts extends State {
 		System.out.println("0 - Voltar ao menu principal");
 		System.out.print("Escolha uma opção: ");
 
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		int opcao = -1;
 
@@ -40,7 +41,7 @@ public class ListProducts extends State {
 		} else {
 			System.out.println("Opção inválida. A voltar ao menu principal.");
 		}
-
+		
 		return opcao; // devolve a escolha para o StateMachine decidir o próximo estado
 	}
 	

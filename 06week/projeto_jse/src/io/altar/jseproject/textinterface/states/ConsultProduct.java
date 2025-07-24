@@ -26,6 +26,7 @@ public class ConsultProduct extends State {
 				System.out.println("DESCONTO: " + produto.getDescontoUni());
 				System.out.println("IVA: " + produto.getIva());
 				System.out.println("PVP: " + produto.getPvp());
+				System.out.println("PRATELEIRA: " + produto.getPrateleiras());
 			} else {
 				System.out.println("Produto com ID " + id + " não encontrado.");
 			}

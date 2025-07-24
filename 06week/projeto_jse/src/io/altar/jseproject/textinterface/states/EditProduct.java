@@ -3,11 +3,14 @@ package io.altar.jseproject.textinterface.states;
 import java.util.Scanner;
 
 import io.altar.jseproject.model.Product;
+import io.altar.jseproject.model.Shelf;
 import io.altar.jseproject.repositories.ProductRepository;
+import io.altar.jseproject.repositories.ShelfRepository;
 
 public class EditProduct extends State{
 	@Override
 	public int on() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("\n===== EDITAR PRODUTO =====");
@@ -48,11 +51,58 @@ public class EditProduct extends State{
                 }
                 double novoPvp = scanner.nextDouble();
                 scanner.nextLine();
+
                 
                 //aplica as alteraçoes ao obj
                 produto.setDescontoUni(novoDesconto);
                 produto.setIva(novoIva);
                 produto.setPvp(novoPvp);
+                
+                // Pergunta se quer editar prateleiras associadas
+                System.out.print("Deseja alterar a(s) prateleira(s) associada(s) a este produto? (s/n): ");
+                String resposta = scanner.nextLine();
+
+                if (resposta.equalsIgnoreCase("s")) {
+                    // Remove a associação anterior 
+                    for (Long idPrateleira : produto.getPrateleiras()) {
+                        Shelf prateleira = ShelfRepository.getInstance().getById((long) idPrateleira);
+                        if (prateleira != null && prateleira.getIdProduto() == produto.getId()) {
+                            prateleira.setIdProduto(0); // remove associação
+                            ShelfRepository.getInstance().edit(prateleira);
+                        }
+                    }
+                    produto.getPrateleiras().clear(); // limpa lista de IDs no produto
+
+                    // Permite uma nova associaçao
+                    boolean continuar = true;
+                    while (continuar) {
+                        System.out.print("Insira o ID da nova prateleira: ");
+                        if (scanner.hasNextLong()) {
+                            long idNova = scanner.nextLong();
+                            scanner.nextLine();
+
+                            Shelf novaPrateleira = ShelfRepository.getInstance().getById(idNova);
+                            if (novaPrateleira != null) {
+                                novaPrateleira.setIdProduto((long) produto.getId());
+                                ShelfRepository.getInstance().edit(novaPrateleira);
+
+                                produto.getPrateleiras().add((Long) novaPrateleira.getId());
+                                System.out.println("Nova prateleira associada.");
+                            } else {
+                                System.out.println("Prateleira não encontrada.");
+                            }
+                        } else {
+                            System.out.println("ID inválido.");
+                            scanner.nextLine();
+                        }
+
+                        System.out.print("Deseja associar outra prateleira? (s/n): ");
+                        String outra = scanner.nextLine();
+                        if (!outra.equalsIgnoreCase("s")) {
+                            continuar = false;
+                        }
+                    }
+                }
 
                 ProductRepository.getInstance().edit(produto);
 

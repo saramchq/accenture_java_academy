@@ -10,6 +10,7 @@ import io.altar.jseproject.repositories.ShelfRepository;
 public class CreateProduct extends State {
 	@Override
 	public int on() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in); //cria o scanner p ler do teclado
 		
 		System.out.println("\n===== CRIAR PRODUTO =====");
@@ -31,26 +32,26 @@ public class CreateProduct extends State {
 		System.out.print("Deseja associar este produto a prateleiras existentes? (s/n): ");
 		String resposta = scanner.nextLine();
 
-		if (resposta.equalsIgnoreCase("s")) {
-			boolean continuar = true;
+		if (resposta.equalsIgnoreCase("s")) { //veruifuca se o utilizador respondeu "s" 
+			boolean continuar = true; //variavel de controlo do ciclo de associaçao
 
-			while (continuar) {
+			while (continuar) { //enquanto o utilizador quiser continuar a associar
 				System.out.print("Insira o ID da prateleira a associar: ");
 				if (scanner.hasNextLong()) {
 					long idPrateleira = scanner.nextLong();
 					scanner.nextLine();
 
-					Shelf prateleira = ShelfRepository.getInstance().getById(idPrateleira);
-					if (prateleira != null) {
-						prateleira.setIdProduto((long) novoProduto.getId());
-						ShelfRepository.getInstance().edit(prateleira);
+					Shelf prateleira = ShelfRepository.getInstance().getById(idPrateleira); // vai buscar a prateleira c o id indicado (repositorio)
+					if (prateleira != null) { //se existir c esse id
+						prateleira.setIdProduto((long) novoProduto.getId()); //associa o produto a prateleira pelo id do produto
+						ShelfRepository.getInstance().edit(prateleira); //atualiza p guardar
 
-						novoProduto.getPrateleiras().add(prateleira.getId());
-						ProductRepository.getInstance().edit(novoProduto);
+						novoProduto.getPrateleiras().add(prateleira.getId());//adiciona o id da prateleira a lista de prateleiras associadas ao produto
+						ProductRepository.getInstance().edit(novoProduto);//atualiza o produto no reposiutorio c a nova info
 
 						System.out.println("Prateleira associada com sucesso.");
 					} else {
-						System.out.println("Prateleira com ID " + idPrateleira + " não encontrada.");
+						System.out.println("Prateleira com ID " + idPrateleira + " não encontrada."); 
 					}
 				} else {
 					System.out.println("ID inválido.");
@@ -59,7 +60,7 @@ public class CreateProduct extends State {
 
 				System.out.print("Deseja associar outra prateleira? (s/n): ");
 				String outra = scanner.nextLine();
-				if (!outra.equalsIgnoreCase("s")) {
+				if (!outra.equalsIgnoreCase("s")) { // Se a resposta for diferente de "s", termina o ciclo
 					continuar = false;
 				}
 			}

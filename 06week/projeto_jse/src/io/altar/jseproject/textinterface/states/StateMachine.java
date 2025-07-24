@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class StateMachine {
 
-	private Scanner scanner = new Scanner(System.in); // input global
+	@SuppressWarnings("unused")
+	private Scanner scanner = new Scanner(System.in);
 
 	//posseveis estados da app
 	private State[] states = { new MenuInit(), // 0
